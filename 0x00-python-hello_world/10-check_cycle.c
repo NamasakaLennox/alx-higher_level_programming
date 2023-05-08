@@ -8,21 +8,17 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *current = list, *next = list->next;
+	listint_t *check, *last = list;
 
-	while (current)
+	while (last)
 	{
-		while (next)
-		{
-			if (current == next)
+		if (last == last->next)
+			return (1);
+
+		for (check = list; check != last; check = check->next)
+			if (check == last->next)
 				return (1);
-			next = next->next;
-		}
-		current = current->next;
-
-		if (current)
-			next = current->next;
+		last = last->next;
 	}
-
 	return (0);
 }
