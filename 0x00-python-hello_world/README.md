@@ -74,3 +74,12 @@ Return: 0 if there is no cycle, 1 if there is a cycle
 Requirements:
 
 Only these functions are allowed: write, printf, putchar, puts, malloc, free
+
+## 100-write.py
+Write a Python script that prints exactly and that piece of art is useful - Dora Korpar, 2015-10-19, followed by a new line.
+
+## 101-compile
+Write a script that compiles a Python script file.
+
+## 102-magic_calculation.py
+Write the Python function def magic_calculation(a, b): that does exactly the same as the following Python bytecode

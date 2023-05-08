@@ -15,7 +15,7 @@ int check_cycle(listint_t *list)
 		if (last == last->next)
 			return (1);
 
-		for (check = list; check != last; check = check->next)
+		for (check = li/st; check != last; check = check->next)
 			if (check == last->next)
 				return (1);
 		last = last->next;
