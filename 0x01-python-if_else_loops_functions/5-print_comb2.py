@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 for num in range(100):
     if num < 10:
-        print("0{}".format(num), end=", ")
+        string = "0" + str(num)
     else:
-        if num != 99:
-            print("{}".format(num), end=", ")
-        else:
-            print("{}".format(num), end="\n")
+        string = num
+    if num != 99:
+        print("{}".format(string), end=", ")
+    else:
+        print("{}".format(string), end="\n")
