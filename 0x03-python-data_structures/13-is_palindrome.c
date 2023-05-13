@@ -1,6 +1,25 @@
 #include "lists.h"
 
 /**
+ * reverse - reverses a list
+ * @head: the address of the first element in list
+ */
+void reverse(listint_t **head)
+{
+	listint_t *previous = NULL, *current = *head, *temp;
+
+	while (current)
+	{
+		temp = current->next;
+		current->next = previous;
+		previous = current;
+		current = temp;
+	}
+
+	*head = previous;
+}
+
+/**
  * is_palindrome - checks if a linked list is a palindrome
  * @head: address of the first element in the list
  *
@@ -9,31 +28,26 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *last = *head, *first = *head;
-	int len = 0, count_up = 0, i;
 
 	/* if list is empty */
 	if (*head == NULL)
 		return (1);
-	/* get length of list and last element of the list */
-	while (last)
+	while (last) /* get last element in the list */
 	{
-		len++;
 		if (last->next == NULL)
 			break;
 		last = last->next;
 	}
 
-	len = len - 1; /* indexing starts from zero */
-	while (count_up < len)
+	if (last != first) /* reverse list if more than 1 element */
+		reverse(&last);
+
+	while (last > first)
 	{
 		if (first->n != last->n) /* compare first and last values */
 			return (0);
-		count_up++;
-		len--;
 		first = first->next;
-		last = first;
-		for (i = count_up; i < len; i++) /* change value of last elem */
-			last = last->next;
+		last = last->next;
 	}
 	return (1);
 }
