@@ -11,4 +11,4 @@ def print_matrix_integer(matrix=[[]]):
             else:
                 print("{:d}".format(num), end=" ")  # separate with space
 
-            print(end="$\n")
+            print()
