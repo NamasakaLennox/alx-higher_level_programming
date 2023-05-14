@@ -1,25 +1,6 @@
 #include "lists.h"
 
 /**
- * reverse - reverses a list
- * @head: the address of the first element in list
- */
-void reverse(listint_t **head)
-{
-	listint_t *previous = NULL, *current = *head, *temp;
-
-	while (current)
-	{
-		temp = current->next;
-		current->next = previous;
-		previous = current;
-		current = temp;
-	}
-
-	*head = previous;
-}
-
-/**
  * is_palindrome - checks if a linked list is a palindrome
  * @head: address of the first element in the list
  *
@@ -27,27 +8,26 @@ void reverse(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *last = *head, *first = *head;
-
-	/* if list is empty */
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 		return (1);
-	while (last) /* get last element in the list */
-	{
-		if (last->next == NULL)
-			break;
-		last = last->next;
-	}
+	return (check_if_palindrome(head, *head));
+}
 
-	if (last != first) /* reverse list if more than 1 element */
-		reverse(&last);
-
-	while (last > first)
+/**
+ * check_if_palindrome - checks if a function is a palindrome recursively
+ * @head: the address of the list
+ * @last: last node in the list, initially set to head node
+ *
+ * Return: returns 1 if palindrome, 0 otherwise
+ */
+int check_if_palindrome(listint_t **head, listint_t *last)
+{
+	if (last == NULL)
+		return (1);
+	if (check_if_palindrome(head, last->next) && (*head)->n == last->n)
 	{
-		if (first->n != last->n) /* compare first and last values */
-			return (0);
-		first = first->next;
-		last = last->next;
+		*head = (*head)->next;
+		return (1);
 	}
-	return (1);
+	return (0);
 }
