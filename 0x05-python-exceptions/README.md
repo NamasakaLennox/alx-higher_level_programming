@@ -10,7 +10,8 @@ x can be bigger than the length of my_list
 Returns the real number of elements printed
 You have to use try: / except:
 You are not allowed to import any module
-You are not allowed to use len() ```
+You are not allowed to use len()
+```
 
 ## 1-safe_print_integer.py
 Write a function that prints an integer with "{:d}".format().
@@ -22,7 +23,8 @@ Otherwise, returns False
 You have to use try: / except:
 You have to use "{:d}".format() to print as integer
 You are not allowed to import any module
-You are not allowed to use type() ```
+You are not allowed to use type()
+```
 
 ## 2-safe_print_list_integers.py
 Write a function that prints the first x elements of a list and only integers.
@@ -35,7 +37,8 @@ Returns the real number of integers printed
 You have to use try: / except:
 You have to use "{:d}".format() to print an integer
 You are not allowed to import any module
-You are not allowed to use len() ```
+You are not allowed to use len()
+```
 
 ## 3-safe_print_division.py
 Write a function that divides 2 integers and prints the result.
@@ -45,7 +48,8 @@ The result of the division should print on the finally: section preceded by Insi
 Returns the value of the division, otherwise: None
 You have to use try: / except: / finally:
 You have to use "{}".format() to print the result
-You are not allowed to import any module ```
+You are not allowed to import any module
+```
 
 ## 4-list_division.py
 Write a function that divides element by element 2 lists.
@@ -61,7 +65,8 @@ print: division by 0
 If my_list_1 or my_list_2 is too short
 print: out of range
 You have to use try: / except: / finally:
-You are not allowed to import any module ```
+You are not allowed to import any module
+```
 
 ## 5-raise_exception.py
 Write a function that raises a type exception.
