@@ -80,7 +80,7 @@ class Square:
                 print()
             for i in range(self.__size):
                 for space in range(pos[0]):
-                    print(end=" ")
+                    print(" ", end="")
                 for j in range(self.__size):
                     print("#", end="")
                 print()
