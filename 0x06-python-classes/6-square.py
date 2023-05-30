@@ -13,8 +13,8 @@ class Square:
         initializes an instance attribute with given value
         or zero if no value is given
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
