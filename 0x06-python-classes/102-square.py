@@ -39,3 +39,39 @@ class Square:
         finds the area of a square
         """
         return (self.__size ** 2)
+
+    def __lt__(self, sqr):
+        """
+        compares with less than operator
+        """
+        return self.area() < sqr.area()
+
+    def __le__(self, sqr):
+        """
+        compares with less than or equal to operator
+        """
+        return self.area() <= sqr.area()
+
+    def __eq__(self, sqr):
+        """
+        compares with equality operator
+        """
+        return self.area() == sqr.area()
+
+    def __ne__(self, sqr):
+        """
+        compares with not equal to operator
+        """
+        return self.area() != sqr.area()
+
+    def __gt__(self, sqr):
+        """
+        compares with greater than operator
+        """
+        return self.area() > sqr.area()
+
+    def __ge__(self, sqr):
+        """
+        compares with greater than or equal to operator
+        """
+        return self.area() >= sqr.area()
