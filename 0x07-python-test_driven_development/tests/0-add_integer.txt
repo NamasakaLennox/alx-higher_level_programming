@@ -1,0 +1,59 @@
+=======================
+``add_integer`` mmodule
+=======================
+Tests a fuction that adds two integers
+returns the result of the addition equivalent to the ``+`` operator.
+
+-------------------
+Import the function
+-------------------
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+------------------------
+Add two positive numbers
+------------------------
+    >>> add_integer(4, 6)
+    10
+
+--------------------------
+Add negative number number
+--------------------------
+    >>> add_integer(4, -8)
+    -4
+    >>> add_integer(-4, 8)
+    4
+
+-------------
+Adding floats
+-------------
+    >>> add_integer(4, 8.5)
+    12
+    >>> add_integer(4.5, 8)
+    12
+
+-------------------
+Passing other types
+-------------------
+    >>> add_integer("String", 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(84, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+-------------
+Overflow case
+-------------
+    >>> add_integer(float("inf"), 10)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+-----------------
+Pass one argument
+-----------------
+    >>> add_integer(2)
+    100
