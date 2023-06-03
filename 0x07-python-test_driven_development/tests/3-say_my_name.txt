@@ -1,0 +1,53 @@
+===========
+Say My Name
+===========
+
+Test cases for a function ``say_my_name`` that prints names given as parameters
+
+---------------
+import function
+---------------
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+----------------
+Normal condition
+----------------
+    >>> say_my_name("Lennox", "Namasaka")
+    My name is Lennox Namasaka
+
+------------------------
+Optional second Argument
+------------------------
+    >>> say_my_name("Lennox")
+    My name is Lennox 
+
+-----------------
+name not a string
+-----------------
+    >>> say_my_name(12, "Namasaka")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Lennox", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(12, ["list"])
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Lennox", ["list"])
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+----------------------------
+At least one parameter given
+----------------------------
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'

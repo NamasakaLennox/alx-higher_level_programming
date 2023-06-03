@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-module contains a function ``matrix_divided`` that divides a matrix with a given
-parameter
+module contains a function ``matrix_divided`` that divides a matrix with a
+given parameter
 takes two arguments, the matrix and the divisor
 """
 
@@ -45,7 +45,7 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     # perform the operation
-    value = list(map(lambda row: list(map(lambda col: round(col / div, 2), row))
-                     , matrix))
+    value = list(map(lambda row: list(map(lambda col: round(col / div, 2),
+                                          row)), matrix))
 
     return (value)
