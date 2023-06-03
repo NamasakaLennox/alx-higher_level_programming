@@ -57,3 +57,11 @@ Pass one argument
 -----------------
     >>> add_integer(2)
     100
+
+--------------------
+Pass NaN as argument
+--------------------
+    >>> add_integer(float("NaN"))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
