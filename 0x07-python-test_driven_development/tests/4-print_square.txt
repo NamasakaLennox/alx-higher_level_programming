@@ -1,0 +1,76 @@
+===============
+Prints a Square
+===============
+A test case for a function that prints a Square using the # character
+
+-------------------
+Import the function
+-------------------
+    >>> print_square = __import__('4-print_square').print_square
+
+-----------
+Normal case
+-----------
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+    >>> print_square(1)
+    #
+
+------
+case 0
+------
+Prints nothing
+    >>> print_square(0)
+
+-------------
+case negative
+-------------
+    >>> print_square(-3)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+-----------------------------
+case other types(not integer)
+-----------------------------
+    >>> print_square("5")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+    --------------
+    positive float
+    --------------
+    >>> print_square(5.4)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+    --------------
+    negative float
+    --------------
+    Type checking occurs first
+
+    >>> print_square(-5.2)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+    ------------
+    Falsy values
+    ------------
+    >>> print_square(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+----------------
+Missing Argument
+----------------
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
