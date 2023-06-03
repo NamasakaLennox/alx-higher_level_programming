@@ -1,5 +1,5 @@
 =======================
-``add_integer`` mmodule
+``add_integer`` module
 =======================
 Tests a fuction that adds two integers
 returns the result of the addition equivalent to the ``+`` operator.
@@ -65,3 +65,11 @@ Pass NaN as argument
     Traceback (most recent call last):
     ...
     ValueError: cannot convert float NaN to integer
+
+-----------------
+Pass No Arguments
+-----------------
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
