@@ -120,4 +120,5 @@ class Rectangle:
         """
         creates an instance of the Rectangle class
         """
-        return Rectangle(size, size)
+        new = cls(size, size)
+        return new
