@@ -64,5 +64,5 @@ if __name__ == "__main__":
         print("N must be at least 4")
         sys.exit(1)
 
-    board = [0 for ccol in range(n)]
+    board = [0 for col in range(n)]
     check_board(board, 0)
