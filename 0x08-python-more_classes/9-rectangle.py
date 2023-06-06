@@ -17,8 +17,8 @@ class Rectangle:
         """
         Initializes the private attributes width and height
         """
-        self.height = height
         self.width = width
+        self.height = height
         type(self).number_of_instances += 1
 
     @property
