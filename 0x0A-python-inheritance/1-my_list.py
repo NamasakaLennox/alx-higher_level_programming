@@ -17,6 +17,4 @@ class MyList(list):
         """
         prints the list in a sorted way
         """
-        list_1 = self.copy()
-        list_1.sort()
-        print(list_1)
+        print(sorted(self))
