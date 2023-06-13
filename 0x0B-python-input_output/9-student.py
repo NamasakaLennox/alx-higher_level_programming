@@ -4,9 +4,6 @@ A module that defines a class Student
 """
 
 
-class_to_json = __import__('8-class_to_json').class_to_json
-
-
 class Student:
     """
     A class that  defines a student
