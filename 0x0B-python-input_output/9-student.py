@@ -27,4 +27,4 @@ class Student:
         """
         Instance method that returns the dict properties of the object
         """
-        return (class_to_json(self))
+        return (self.__dict__)
