@@ -96,7 +96,7 @@ class Rectangle(Base):
                 elif pos == 4:
                     self.__y = arg
                 pos += 1
-        else:
+        elif (kwargs and len(kwargs) != 0):
                 for key, value in kwargs.items():
                     if key == "id":
                         if value is None:
@@ -112,3 +112,7 @@ class Rectangle(Base):
                         self.__x = value
                     elif key == "y":
                         self.__y = value
+
+    def to_dictionary(self):
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
