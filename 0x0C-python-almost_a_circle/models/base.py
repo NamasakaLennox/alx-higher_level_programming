@@ -1,9 +1,109 @@
 #!/usr/bin/python3
+"""
+A module containing the base of all other classes
+Manages the id attribute for other classes to avoid duplication
+"""
+
+
+import json
+
+
 class Base:
+    """
+    A class that manages the id attribute and other common dependencies for
+    all other classes
+    Args:
+        id: the id of the object to be created
+    Attributes:
+        __nb_objects (int): used to set the id if id is not provided
+    """
     __nb_objects = 0
+
     def __init__(self, id=None):
+        """
+        Initializes the class id attribute
+        """
+
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Converts a list of dictionaries into json format
+        Args:
+            list_dictionaries (list): the list of dictionaries to be converted
+        Return:
+            returns the converted json string
+        """
+
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Saves a converted json string into a file
+        Args:
+            list_objs (list): the list of objects to be saved in the file as
+                              json string
+        """
+
+        filename = "{}.json".format(cls.__name__)
+        dictionary = list(obj.to_dictionary() for obj in list_objs)
+        with open(filename, "w", encoding="utf-8") as file_open:
+            file_open.write(cls.to_json_string(dictionary))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Converts a json string into a python list of dictionary
+        Args:
+            json_string (str): the json string to be converted
+        Return:
+            returns the converted list from json
+        """
+
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        creates an instance of a class
+        Args:
+            dictionary: a key value object used to create an instance
+                        of a class
+        Return:
+            returns the created instance
+        """
+
+        if dictionary and len(dictionary) != 0:
+            if cls.__name__ == "Rectangle":
+                dummy = cls(1, 1)
+            else:
+                dummy = cls(1)
+
+            dummy.update(**dictionary)
+            return (dummy)
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        reads a json string of instances, creates them and returns the
+        instances
+        Return:
+            returns the list of created instances from a file
+        """
+        filename = "{}.json".format(cls.__name__)
+        try:
+            with open(filename, encoding="utf-8") as open_file:
+                dictionary = cls.from_json_string(open_file.read())
+                return list(cls.create(**item) for item in dictionary)
+        except IOError:
+            return []
