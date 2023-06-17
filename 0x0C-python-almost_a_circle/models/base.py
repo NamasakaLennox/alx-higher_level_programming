@@ -6,6 +6,8 @@ Manages the id attribute for other classes to avoid duplication
 
 
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -178,8 +180,8 @@ class Base:
                 draw.left(90)
             draw.hideturtle()
 
-        #draw square
-        turt.color("#666362")
+        # draw square
+        draw.color("#666362")
         for item in list_squares:
             draw.showturtle()
             draw.up()
