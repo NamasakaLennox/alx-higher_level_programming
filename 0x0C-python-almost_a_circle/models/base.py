@@ -107,3 +107,47 @@ class Base:
                 return list(cls.create(**item) for item in dictionary)
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        saves the content to a file in csv format
+        Args:
+            list_objs: list of objects to be added to the file in csv format
+        """
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, "w", encoding="utf-8", newline="") as file_open:
+            if list_objs is None or len(list_objs) == 0:
+                file_open.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                    writer = csv.DictWriter(file_open, fieldnames=fieldnames)
+                for items in list_objs:
+                    writer.writerow(items.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        reads data from the csv file
+        Creates class objects from the file
+        Return:
+            returns the created objects
+        """
+        filename = "{}.csv".format(cls.__name__)
+        try:
+            with open(filename, encoding="utf-8", newline="") as file_open:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                dictionaries = csv.DictReader(file_open, fieldnames=fieldnames)
+                dictionaries = list(dict([key, int(value)] for key, value in
+                                         dicts.items()) for dicts in
+                                    dictionaries)
+                return list(cls.create(**dicts) for dicts in dictionaries)
+
+        except IOError:
+            return []
