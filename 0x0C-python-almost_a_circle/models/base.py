@@ -56,7 +56,10 @@ class Base:
         """
 
         filename = "{}.json".format(cls.__name__)
-        dictionary = list(obj.to_dictionary() for obj in list_objs)
+        if list_objs:
+            dictionary = list(obj.to_dictionary() for obj in list_objs)
+        else:
+            dictionary = list_objs
         with open(filename, "w", encoding="utf-8") as file_open:
             file_open.write(cls.to_json_string(dictionary))
 
