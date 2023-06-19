@@ -164,35 +164,35 @@ class Rectangle(Base):
             for arg in args:
                 if pos == 0:
                     if arg is None:
-                        self.__init__(self.__width, self.__height, self.__x,
-                                      self.__y)
+                        self.__init__(self.width, self.height, self.x,
+                                      self.y)
                     else:
                         self.id = arg
                 elif pos == 1:
-                    self.__width = arg
+                    self.width = arg
                 elif pos == 2:
-                    self.__height = arg
+                    self.height = arg
                 elif pos == 3:
-                    self.__x = arg
+                    self.x = arg
                 elif pos == 4:
-                    self.__y = arg
+                    self.y = arg
                 pos += 1
         elif (kwargs and len(kwargs) != 0):
             for key, value in kwargs.items():
                 if key == "id":
                     if value is None:
-                        self.__init__(self.__width, self.__height,
-                                      self.__x, self.__y)
+                        self.__init__(self.width, self.height,
+                                      self.x, self.y)
                     else:
                         self.id = value
                 elif key == "width":
-                    self.__width = value
+                    self.width = value
                 elif key == "height":
-                    self.__height = value
+                    self.height = value
                 elif key == "x":
-                    self.__x = value
+                    self.x = value
                 elif key == "y":
-                    self.__y = value
+                    self.y = value
 
     def to_dictionary(self):
         """
@@ -200,5 +200,5 @@ class Rectangle(Base):
         Return:
             the dictionary containing all the attributes of the object
         """
-        return {"id": self.id, "width": self.__width, "height": self.__height,
-                "x": self.__x, "y": self.__y}
+        return {"id": self.id, "width": self.width, "height": self.height,
+                "x": self.x, "y": self.y}

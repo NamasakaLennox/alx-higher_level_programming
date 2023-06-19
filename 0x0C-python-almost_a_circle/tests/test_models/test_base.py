@@ -283,6 +283,7 @@ class TestBase_from_json_string_method(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.from_json_string([], [])
 
+
 class TestBase_create_method(unittest.TestCase):
     """
     Unittest for testing the create method
@@ -317,26 +318,27 @@ class TestBase_create_method(unittest.TestCase):
     def test_original_sq(self):
         s1 = Square(9, 7, 3, 5)
         dictionary = s1.to_dictionary()
-        s2  = Square.create(**dictionary)
+        s2 = Square.create(**dictionary)
         self.assertEqual("[Square] (5) 7/3 - 9", str(s1))
 
     def test_new_square(self):
         s1 = Square(9, 7, 3, 5)
         dictionary = s1.to_dictionary()
-        s2  = Square.create(**dictionary)
+        s2 = Square.create(**dictionary)
         self.assertEqual("[Square] (5) 7/3 - 9", str(s2))
 
     def test_same_object(self):
         s1 = Square(9, 7, 3, 5)
         dictionary = s1.to_dictionary()
-        s2  = Square.create(**dictionary)
+        s2 = Square.create(**dictionary)
         self.assertIsNot(s1, s2)
 
     def test_equality_sq(self):
         s1 = Square(9, 7, 3, 5)
         dictionary = s1.to_dictionary()
-        s2  = Square.create(**dictionary)
+        s2 = Square.create(**dictionary)
         self.assertNotEqual(s1, s2)
+
 
 class TestBase_load_from_file_method(unittest.TestCase):
     """
@@ -355,7 +357,7 @@ class TestBase_load_from_file_method(unittest.TestCase):
 
         try:
             os.remove("Square.json")
-        except:
+        except IOError:
             pass
 
     # tests for Rectangle
@@ -410,6 +412,7 @@ class TestBase_load_from_file_method(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.load_from_file([], [])
 
+
 class TestBase_save_to_file_csv_method(unittest.TestCase):
     """
     Tests the save_to_file_csv method
@@ -444,7 +447,7 @@ class TestBase_save_to_file_csv_method(unittest.TestCase):
         r1 = Rectangle(10, 2, 8, 5, 9)
         r2 = Rectangle(1, 2, 4, 5, 3)
         Rectangle.save_to_file_csv([r1, r2])
-        with open("Rectangle.csv","r", encoding="utf-8") as file_open:
+        with open("Rectangle.csv", "r", encoding="utf-8") as file_open:
             self.assertTrue("10,2,8,5,9\n1,2,8,5,9", file_open.read())
 
     def test_save_one_square(self):
