@@ -1,6 +1,6 @@
--- lists all genres by their ratings
+-- a script that lists all genres by their ratings
 -- list genres
-SELECT A.name, SUM(D.rate) as rating
+SELECT A.name, SUM(D.rate) AS rating
 FROM tv_genres A
 JOIN tv_show_genres B
      ON B.genre_id = A.id
