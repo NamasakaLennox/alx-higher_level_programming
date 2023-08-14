@@ -8,7 +8,7 @@ if (len <= 1) {
   console.log(0);
 } else {
   const arr = args.map(function (num) {
-    return (parseInt(num));
+    return (Number(num));
   });
   arr.sort();
   console.log(arr[len - 2]);
