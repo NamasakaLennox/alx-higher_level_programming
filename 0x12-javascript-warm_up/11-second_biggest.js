@@ -7,7 +7,7 @@ const len = args.length;
 if (len <= 1) {
   console.log(0);
 } else {
-  const arr = args.map(function (num) {
+  let arr = args.map(function (num) {
     return (Number(num));
   });
   arr.sort();
