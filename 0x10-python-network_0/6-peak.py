@@ -19,15 +19,21 @@ def find_peak(list_of_integers):
     length = len(list_of_integers)
     if length == 0:
         return
-    elif length == 1:
-        return list_of_integers[0]
 
-    peak = None
+    peak = list_of_integers[0]
+    i = 1
+    length -= 1
     # for lists greater than 1 element
-    for i in range(1, length):
+    while i <= length:
+        # check from front
         if list_of_integers[i - 1] > list_of_integers[i]:
             return list_of_integers[i - 1]
+        # check from back
+        elif list_of_integers[length] > list_of_integers[length - 1]:
+            return list_of_integers[length]
         else:
             peak = list_of_integers[i]
+        i += 1
+        length -= 1
 
     return peak
