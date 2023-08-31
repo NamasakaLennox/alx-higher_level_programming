@@ -14,6 +14,8 @@ def find_peak(list_of_integers):
     PS: merge sort takes O(log(n) so not worth sorting
     """
 
+    if type(list_of_integers) != list:
+        return
     length = len(list_of_integers)
     if length == 0:
         return
