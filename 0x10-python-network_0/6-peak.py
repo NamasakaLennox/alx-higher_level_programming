@@ -21,21 +21,13 @@ def find_peak(list_of_integers):
         return
     elif length == 1:
         return list_of_integers[0]
-    elif length == 2:
-        return (list_of_integers[0] if list_of_integers[0] >=
-                list_of_integers[1] else list_of_integers[1])
 
-    # for lists greater than 2 elements
-    for i in range(length):
-        # check if second element is smaller than first element
-        if (i == 0 and list_of_integers[i + 1] <= list_of_integers[i]):
-            return list_of_integers[i]
-        # check if the items on the right and left of an element are both
-        # less than the current integer
-        elif (i > 0 and i < length - 1 and list_of_integers[i] >=
-              list_of_integers[i + 1] and list_of_integers[i] >=
-              list_of_integers[i - 1]):
-            return (list_of_integers[i])
-        # if the last item is larger than the previous item
-        elif (i == length - 1 and list_of_integers[i - 1] <= value):
-            return list_of_integers[i]
+    peak = None
+    # for lists greater than 1 element
+    for i in range(1, length):
+        if list_of_integers[i - 1] > list_of_integers[i]:
+            return list_of_integers[i - 1]
+        else:
+            peak = list_of_integers[i]
+
+    return peak
