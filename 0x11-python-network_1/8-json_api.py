@@ -2,10 +2,10 @@
 """
 requests from an api and searches for a letter
 """
-if __name__ = '__main__':
-    from sys import argv
-    import requests
+from sys import argv
+import requests
 
+if __name__ = '__main__':
     if len(argv) > 1:
         q = argv[1]
     else:
@@ -21,5 +21,5 @@ if __name__ = '__main__':
             print('[{}] {}'.format(res['id'], res['name']))
         else:
             print('No result')
-    except requests.exceptions.JSONDecodeError:
+    except ValueError:
         print('Not a valid JSON')
