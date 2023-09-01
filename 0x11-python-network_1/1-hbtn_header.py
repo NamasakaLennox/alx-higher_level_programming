@@ -5,9 +5,8 @@ of the X-Request-Id
 """
 from sys import argv
 from urllib import request
-
-req = request.Request(argv[1])
-with request.urlopen(req) as response:
-    for key, value in response.headers.items():
-        if key == 'X-Request-Id':
-            print(value)
+if len(argv) > 1:
+    with request.urlopen(request.Request(argv[1])) as response:
+        for key, value in response.headers.items():
+            if key == 'X-Request-Id':
+                print(value)
