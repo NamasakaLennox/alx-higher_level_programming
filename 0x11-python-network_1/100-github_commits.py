@@ -6,9 +6,9 @@ from sys import argv
 import requests
 
 if len(argv) > 2:
-    user = argv[1]
-    repo = argv[2]
-    url = 'https://api.github.com/repos/' + user + '/' + repo + '/commits'
+    user = argv[2]
+    repo = argv[1]
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(repo, user)
     r = requests.get(url)
     try:
         commits = r.json()
