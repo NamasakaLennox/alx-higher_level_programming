@@ -7,4 +7,4 @@ import requests
 
 if len(argv) > 1:
     r = requests.get(argv[1])
-    print(r.headers['X-Request-Id'])
+    print(r.headers.items())
