@@ -6,5 +6,8 @@ from sys import argv
 import requests
 
 if len(argv) > 1:
-    r = requests.get(argv[1])
-    print(r.headers.items())
+    try:
+        r = requests.get(argv[1])
+        print(r.headers['X-Request-Id'])
+    except KeyError:
+        pass
