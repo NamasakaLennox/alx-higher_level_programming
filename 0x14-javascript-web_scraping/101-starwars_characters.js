@@ -8,11 +8,20 @@ request(url, (error, response, body) => {
 
   const characters = JSON.parse(body).characters;
   /* request each character retrived */
-  characters.forEach((charUrl) => {
-    request(charUrl, (err, resp, bodyChar) => {
-      if (err) throw err;
+  const requests = characters.map((charUrl) => {
+    return new Promise((resolve, reject) => {
+      request(charUrl, (err, resp, bodyChar) => {
+        if (err) { reject(err); }
 
-      console.log(JSON.parse(bodyChar).name);
+        resolve(bodyChar);
+      });
     });
   });
+  Promise.all(requests).then((res) => {
+    res.forEach((bodyChar) => {
+      if (bodyChar) {
+        console.log(JSON.parse(bodyChar).name);
+      }
+    });
+  }).catch((err) => console.log(err));
 });
